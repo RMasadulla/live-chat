@@ -11,6 +11,8 @@ interface ChatWindowProps {
   messages: Message[];
   socketId: string | undefined;
   onClose: () => void;
+  onSendText: (message: string) => void;
+  onSendFile: (imageUrl: string) => void;
 }
 
 const ChatWindow: React.FC<ChatWindowProps> = ({

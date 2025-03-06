@@ -4,7 +4,7 @@ import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 interface NotificationButtonProps {
   onOpenBox: () => void;
   notificationCount: number;
-  isOpen: () => void;
+  isOpen: boolean;
 }
 
 const NotificationButton: React.FC<NotificationButtonProps> = ({

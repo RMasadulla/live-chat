@@ -72,7 +72,7 @@ const App: React.FC = () => {
       <div className="fixed bottom-0 right-0 mb-4 mr-4">
         <NotificationButton
           onOpenBox={toggleChat}
-          isOpen={isChatOpen}
+          isOpen={() => isChatOpen}
           notificationCount={notifications.length}
         />
       </div>

@@ -1,9 +1,5 @@
 import React from "react";
-
-interface MessageProps {
-  message: { id: string; message: string; type: "text" | "image" };
-  socketId: string | undefined;
-}
+import { MessageProps } from "../types";
 
 const Message: React.FC<MessageProps> = ({ message, socketId }) => {
   return (
@@ -22,7 +18,7 @@ const Message: React.FC<MessageProps> = ({ message, socketId }) => {
         <img
           src={message.message}
           alt="uploaded"
-          className="md:max-w-xs rounded-lg "
+          className="md:max-w-xs rounded-lg"
         />
       )}
     </div>

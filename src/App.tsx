@@ -2,24 +2,15 @@ import React, { useEffect, useState } from "react";
 import { io, Socket } from "socket.io-client";
 import ChatWindow from "./components/ChatWindow";
 import NotificationButton from "./components/NotificationButton";
+import { Message, Notification } from "./types";
+
 const serverURL = import.meta.env.VITE_SERVER_URL;
-
-interface Message {
-  id: string;
-  message: string;
-  type: "text" | "image";
-}
-
-interface Notification {
-  message: string;
-}
 
 const App: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
-
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [socket, setSocket] = useState<Socket | null>(null);
-  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const newSocket = io(serverURL);
@@ -72,7 +63,7 @@ const App: React.FC = () => {
       <div className="fixed bottom-0 right-0 mb-4 mr-4">
         <NotificationButton
           onOpenBox={toggleChat}
-          isOpen={() => isChatOpen}
+          isOpen={isChatOpen}
           notificationCount={notifications.length}
         />
       </div>

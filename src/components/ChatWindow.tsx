@@ -1,14 +1,10 @@
 import React from "react";
+import { Message as MessageType } from "../types";
 import ChatInput from "./ChatInput";
 import Message from "./Message";
 
-interface Message {
-  id: string;
-  message: string;
-}
-
 interface ChatWindowProps {
-  messages: Message[];
+  messages: MessageType[];
   socketId: string | undefined;
   onClose: () => void;
   onSendText: (message: string) => void;
@@ -23,7 +19,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({
   onSendFile,
 }) => {
   return (
-    <div className="fixed bottom-16  mx-4 lg:w-96 md:right-4 ">
+    <div className="fixed bottom-16 mx-4 lg:w-96 md:right-4">
       <div className="bg-blue-500 rounded-lg max-w-lg w-full">
         <div className="p-4 bg-blue-600 rounded-t-lg text-white flex justify-between items-center">
           <p className="text-lg font-semibold">Live Chat</p>
